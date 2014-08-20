@@ -108,7 +108,7 @@ function write_Check() {
 
 	var frm = document.join;
 
-	frm.action = "../src/index.jsp";
+	frm.action = "./src/index.jsp";
 
 	if (!frm.userid.value) {
 		alert("회원ID를 입력해주세요");

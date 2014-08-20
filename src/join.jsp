@@ -59,7 +59,7 @@
 					</div>
 					<hr>
 					<div class="form-group">
-						<label class="col-lg-3 control-label">성명</label>
+						<label class="col-lg-3 control-label">닉네임</label>
 						<div class="col-lg-4">
 							<input name="username" type="text" class="form-control"
 								placeholder="Name">
@@ -108,7 +108,7 @@
 					</div>
 				</div>
 				<div class="modal-footer">
-					<button type="button" class="btn btn-default" onclick="javascript:history.back(-1)">취소</button>
+					<button type="button" class="btn btn-default" onclick="javascript:location.href='./index.jsp'">취소</button>
 					<button type="button" class="btn btn-primary" onclick="goJoin()">회원가입</button>
 				</div>
 			</div>
