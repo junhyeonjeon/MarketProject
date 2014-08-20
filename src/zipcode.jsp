@@ -1,4 +1,5 @@
-<%@page import="com.myhome.member.MemberDao"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="com.myhome.zipcode.*"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="EUC-KR"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -10,7 +11,7 @@
 	content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
 <meta name="description" content="">
 <meta name="author" content="">
-<title>ID 중복검사</title>
+<title>주소 찾기</title>
 
 <!-- CSS -->
 <link href="./css/bootstrap.min.css" rel="stylesheet">
@@ -27,13 +28,24 @@
 
 </head>
 <body style="padding-top: 15px">
-	<form name="idcheck_form" method="post" class="form-horizontal"
+	<%
+		request.setCharacterEncoding("euc-kr");
+		String eupmun = request.getParameter("eupmun");
+		ArrayList<ZipcodeDto> list = null;
+		
+		if (eupmun != null && !eupmun.equals("")) {
+			ZipcodeDao dao = new ZipcodeDao();
+			list = (ArrayList<ZipcodeDto>)dao.getList(eupmun);
+		}
+	%>
+
+	<form name="zipcode_form" method="post" class="form-horizontal"
 		role="form">
 		<div class="modal-dialog" style="margin-top: 0px;">
 			<div class="modal-content">
 				<div class="modal-header">
 					<h4 class="modal-title">
-						<span class="glyphicon glyphicon-ok"></span>&nbsp;주소 찾기
+						<span class="glyphicon glyphicon-ok"></span>&nbsp;<b>주소 찾기</b>
 					</h4>
 				</div>
 				<div class="modal-body">
@@ -41,10 +53,12 @@
 						<label class="col-lg-3 control-label">읍/면/동 입력</label>
 						<div class="col-lg-6">
 							<div class="input-group">
-								<input name="userid" type="text" class="form-control"> <span
-									class="input-group-btn">
+								<input name="eupmun" type="text" class="form-control"
+									<%if (eupmun != null && !eupmun.equals("")) {%>
+									value=<%=eupmun%> <%}%>>
+								<span class="input-group-btn">
 									<button class="btn btn-default" type="button"
-										onclick="goCheck()">Check</button>
+										onclick="goSearch()">검색</button>
 								</span>
 							</div>
 						</div>
@@ -62,12 +76,29 @@
 										<td>주소</td>
 									</tr>
 								</thead>
+								<%
+									if(list!=null){
+								%>
 								<tbody>
+								<%
+									for(int i=0; i<list.size(); i++){
+										ZipcodeDto dto = list.get(i);
+								%>
 									<tr>
-										<td align="center"><h6>1</h6></td>
-										<td align="left"><a href="#"><h6>제목ㅇㄴㅁㅁㄴㅇㄴㅁ1</h6></a></td>
+										<td align="center"><h6><%=dto.getZipcode()%></h6></td>
+										<td align="left">
+										<a href="#none" onclick="goAddress('<%=dto.getZipcode()%>', '<%=dto.getAddress()%>')">
+										<h6><%=dto.getAddress()%></h6>
+										</a>
+										</td>
 									</tr>
+								<% 
+									}
+								%>
 								</tbody>
+								<%
+									}
+								%>
 							</table>
 						</div>
 					</div>

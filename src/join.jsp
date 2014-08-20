@@ -74,14 +74,14 @@
 					<div class="form-group">
 						<label class="col-lg-3 control-label">우편번호</label>
 						<div class="col-lg-4">
-							<input name="zipcode" type="text" class="form-control"
+							<input name="zipcode" id="zipcode" type="text" class="form-control"
 								placeholder="Zip-Code" readonly>
 						</div>
 					</div>
 					<div class="form-group">
 						<label class="col-lg-3 control-label">주소</label>
 						<div class="col-lg-7">
-							<input name="address1" type="text" class="form-control"
+							<input name="address1" id="address1" type="text" class="form-control"
 								placeholder="Address1" readonly>
 						</div>
 					</div>
@@ -108,9 +108,8 @@
 					</div>
 				</div>
 				<div class="modal-footer">
-					<button type="button" class="btn btn-default" data-dismiss="modal">취소</button>
-					<button type="button" class="btn btn-primary" data-toggle="modal"
-						href="#join_sc_modal" data-dismiss="modal">회원가입</button>
+					<button type="button" class="btn btn-default" >취소</button>
+					<button type="button" class="btn btn-primary" data-dismiss="modal">회원가입</button>
 				</div>
 			</div>
 		</div>

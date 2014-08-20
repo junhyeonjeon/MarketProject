@@ -1,4 +1,19 @@
-//주소찾기 창 띄우기
+// 선택한 주소를 회원가입 창으로 전달
+function goAddress(zipcode, address) {
+	opener.document.getElementById("zipcode").value = zipcode;	
+	opener.document.getElementById("address1").value = address;
+	
+	self.close();
+}
+
+// 주소 검색
+function goSearch() {
+	var frm = document.zipcode_form;
+	frm.action = "./zipcode.jsp";
+	frm.submit();
+}
+
+// 주소찾기 창 띄우기
 function goFindZipcode() {
 	window.open("./zipcode.jsp", "zipcode",
 			"left=400, top=200, width=500, height=620");

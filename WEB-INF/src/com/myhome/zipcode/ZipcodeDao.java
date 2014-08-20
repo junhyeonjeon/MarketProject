@@ -14,38 +14,50 @@ public class ZipcodeDao {
 
 	DBConnect db = new DBConnect();
 
-	public List getList(String eupmun) throws SQLException {
-
-		Connection conn = db.getConnection();
-		Statement stmt = conn.createStatement();
-		String sql = "select * from zipcode where eupmun like '" + eupmun;
-		sql = sql + "%' or li like '" + eupmun + "%'";
-		ResultSet rs;
-
-		// 디버그
-		System.out.println(sql);
-
-		rs = stmt.executeQuery(sql);
-
+	public List getList(String eupmun) {
+		Connection conn = null;
+		Statement stmt = null;
+		ResultSet rs = null;
 		ArrayList<ZipcodeDto> list = new ArrayList<ZipcodeDto>();
 
-		while (rs.next()) {
-			ZipcodeDto dto = new ZipcodeDto();
-			dto.setZipcode(rs.getString("ZIPCODE"));
-			dto.setAddress(rs.getString("ADDRESS"));
+		String sql = "select * from zipcode where eupmun like '" + eupmun;
+		sql = sql + "%' or li like '" + eupmun + "%'";
 
-			list.add(dto);
+		System.out.println(sql);
+
+		try {
+			conn = db.getConnection();
+			stmt = conn.createStatement();
+			rs = stmt.executeQuery(sql);
+
+			while (rs.next()) {
+				ZipcodeDto dto = new ZipcodeDto();
+				dto.setZipcode(rs.getString("ZIPCODE"));
+				dto.setAddress(rs.getString("ADDRESS"));
+
+				list.add(dto);
+			}
+
+			for (int i = 0; i < list.size(); i++) {
+				ZipcodeDto dto = list.get(i);
+				System.out.println(dto.getAddress());
+			}
+
+		} catch (SQLException se) {
+			se.printStackTrace();
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (rs != null)
+					rs.close();
+				if (stmt != null)
+					stmt.close();
+				if (conn != null)
+					conn.close();
+			} catch (Exception ex) {
+			}
 		}
-
-		for (int i = 0; i < list.size(); i++) {
-			ZipcodeDto dto = list.get(i);
-			System.out.println(dto.getAddress());
-		}
-
-		rs.close();
-		stmt.close();
-		conn.close();
-
 		return list;
 	}
 }
