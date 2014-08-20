@@ -108,7 +108,7 @@
 					</div>
 				</div>
 				<div class="modal-footer">
-					<button type="button" class="btn btn-default" onclick="javascript:history.back(-1)">취소</button>
+					<button type="button" class="btn btn-default" onclick="javascript:location.href='./index.jsp'">취소</button>
 					<button type="button" class="btn btn-primary" onclick="goJoin()">회원가입</button>
 				</div>
 			</div>

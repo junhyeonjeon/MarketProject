@@ -4,19 +4,10 @@
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
 
 <%
-	request.setCharacterEncoding("EUC-KR");
-
 	//로그인 체크
 	String userid = "";
 	userid = (String) session.getAttribute("userid");
-
-	//현재 페이지의 파일명 체크
-
-	String cururl = request.getRequestURI().toString();
-	String pageName = cururl.substring(cururl.lastIndexOf("/") + 1, cururl.length());
-	System.out.println(pageName);
 %>
-
 <!-- 네비게이션바 : 시작 -->
 <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
 	<div class="container">
@@ -35,7 +26,7 @@
 		<div class="collapse navbar-collapse"
 			id="bs-example-navbar-collapse-1">
 			<ul class="nav navbar-nav">
-				<li <%if(pageName.equals("board.jsp")){%>class="active"<%} %>><a href="./board.jsp">board</a></li>
+				<li><a href="./board.jsp">board</a></li>
 				<li><a href="#">menu2</a></li>
 				<li><a href="#">menu3</a></li>
 			</ul>
@@ -70,8 +61,8 @@
 <!-- 로그인모달 : 시작 -->
 <div class="modal fade" id="loginModal" tabindex="-1" role="dialog"
 	aria-labelledby="myModalLabel" aria-hidden="true">
-	<form name="login_form" method="post" class="form-horizontal" role="form">
-	<input type="hidden" name="pageName" value=<%=pageName%>>
+	<form name="login_form" method="post" class="form-horizontal"
+		role="form">
 		<div class="modal-dialog">
 			<div class="modal-content">
 				<div class="modal-header">

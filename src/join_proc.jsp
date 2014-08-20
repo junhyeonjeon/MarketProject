@@ -25,7 +25,7 @@
 		dao.insert(dto);
 	%>
 	<script type="text/javascript">
-		alert("회원가입 성공! 홈화면으로 이동됩니다...");
+		alert("회원가입 성공");
 		location.replace('./index.jsp');
 	</script>
 </body>
