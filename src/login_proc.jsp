@@ -7,6 +7,7 @@
 	request.setCharacterEncoding("euc-kr");
 	String userid = request.getParameter("userid");
 	String password = request.getParameter("password");
+	String pageName = request.getParameter("pageName");
 	MemberDao dao = new MemberDao();
 
 	boolean check = false;
@@ -16,14 +17,22 @@
 		session.setAttribute("userid", userid);
 %>
 <script type="text/javascript">
-	location.replace('./index.jsp');
+	location.href = <%if (!pageName.equals("") && pageName != null) {%>
+							'<%=pageName%>';
+					<%} else {%>
+							'index.jsp';
+					<%}%>
 </script>
 <%
 	} else {
 %>
 <script type="text/javascript">
 	alert("로그인 정보가 잘못되었습니다");
-	location.replace('./index.jsp');
+	location.href = <%if (!pageName.equals("") && pageName != null) {%>
+							'<%=pageName%>';
+					<%} else {%>
+							'index.jsp';
+					<%}%>
 </script>
 <%
 	}
