@@ -91,7 +91,11 @@ public class MemberDao {
 	}
 
 	// 회원정보 입력
-	public void insert(MemberDto dto) throws SQLException {
+	public void insert(MemberDto dto) {
+
+		Connection conn = null;
+		Statement stmt = null;
+
 		String sql = "insert into member "
 				+ "values((select nvl(max(seq+1),1) from member), '"
 				+ dto.getUserid() + "', '" + dto.getPassword() + "', '"
@@ -101,12 +105,25 @@ public class MemberDao {
 				+ ", null" + ", 'N')";
 
 		System.out.println(sql);
-		Connection conn = db.getConnection();
-		Statement stmt = conn.createStatement();
-		stmt.execute(sql);
 
-		stmt.close();
-		conn.close();
+		try {
+			conn = db.getConnection();
+			stmt = conn.createStatement();
+			stmt.executeQuery(sql);
+
+		} catch (SQLException se) {
+			se.printStackTrace();
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (stmt != null)
+					stmt.close();
+				if (conn != null)
+					conn.close();
+			} catch (Exception ex) {
+			}
+		}
 	}
 
 	// 중복된 아이디 체크
@@ -116,7 +133,8 @@ public class MemberDao {
 		ResultSet rs = null;
 		boolean result = false;
 
-		String sql = "select count(*) from member where userid='" + userid + "'";
+		String sql = "select count(*) from member where userid='" + userid
+				+ "'";
 
 		System.out.println(sql);
 

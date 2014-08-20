@@ -26,7 +26,7 @@
 
 </head>
 <body style="background-color: #e3e3e3">
-	<form name="join" class="form-horizontal" role="form" autocomplete="off">
+	<form name="join" method="post" class="form-horizontal" role="form" autocomplete="off">
 	<input type="hidden" name="idcheck" id="idcheck" value="N">
 		<div class="modal-dialog">
 			<div class="modal-content">
@@ -108,8 +108,8 @@
 					</div>
 				</div>
 				<div class="modal-footer">
-					<button type="button" class="btn btn-default" >취소</button>
-					<button type="button" class="btn btn-primary" data-dismiss="modal">회원가입</button>
+					<button type="button" class="btn btn-default" onclick="javascript:history.back(-1)">취소</button>
+					<button type="button" class="btn btn-primary" onclick="goJoin()">회원가입</button>
 				</div>
 			</div>
 		</div>

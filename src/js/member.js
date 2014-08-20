@@ -1,8 +1,51 @@
+// 입력된 회원정보를 DB에 저장하기 위한 페이지로 이동
+function goJoin() {
+	var frm = document.join;
+	frm.action = "./join_proc.jsp";
+
+	if (!frm.password1.value || !frm.password2.value) {
+		alert("비밀번호를 입력해주세요");
+		frm.password1.focus();
+		return;
+	}
+	
+	if (frm.password1.value != frm.password2.value) {
+		alert("비밀번호가 틀렸습니다");
+		frm.password2.focus();
+		return;
+	}
+
+	if (!frm.username.value) {
+		alert("성명을 입력해주세요");
+		frm.username.focus();
+		return;
+	}
+	
+	if (!frm.zipcode.value && !frm.address1.value) {
+		alert("주소를 입력해주세요");
+		return;
+	}
+	
+	if (!frm.email.value) {
+		alert("이메일을 입력해주세요");
+		frm.email.focus();
+		return;
+	}
+	
+	if (!frm.phone.value) {
+		alert("연락처를 입력해주세요");
+		frm.phone.focus();
+		return;
+	}
+
+	frm.submit();
+}
+
 // 선택한 주소를 회원가입 창으로 전달
 function goAddress(zipcode, address) {
-	opener.document.getElementById("zipcode").value = zipcode;	
+	opener.document.getElementById("zipcode").value = zipcode;
 	opener.document.getElementById("address1").value = address;
-	
+
 	self.close();
 }
 
