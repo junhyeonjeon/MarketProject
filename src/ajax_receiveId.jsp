@@ -2,7 +2,10 @@
 	pageEncoding="EUC-KR"%>
 <%@ page import="com.myhome.member.*"%>
 <%
+	request.setCharacterEncoding("euc-kr");
 	String uid = request.getParameter("uid");
+	String sql = "";
+	sql = "select count(*) from member where userid='" + uid + "'";
 
 	System.out.println(uid);
 
@@ -12,7 +15,7 @@
 
 	if (uid != null && !uid.equals("")) {
 		MemberDao dao = new MemberDao();
-		if (dao.isExist(uid)) {
+		if (dao.isExist(sql)) {
 			str.append("false");
 		} else {
 			str.append("true");

@@ -6,3 +6,6 @@
 /logout_005fproc_jsp.class
 /zipcode_jsp.class
 /join_005fproc_jsp.class
+/ajax_005freceive_jsp.class
+/ajax_005freceiveId_jsp.class
+/ajax_005freceiveName_jsp.class

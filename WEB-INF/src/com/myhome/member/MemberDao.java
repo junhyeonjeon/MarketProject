@@ -126,15 +126,12 @@ public class MemberDao {
 		}
 	}
 
-	// 중복된 아이디 체크
-	public boolean isExist(String userid) {
+	// 중복 체크
+	public boolean isExist(String sql) {
 		Connection conn = null;
 		Statement stmt = null;
 		ResultSet rs = null;
 		boolean result = false;
-
-		String sql = "select count(*) from member where userid='" + userid
-				+ "'";
 
 		System.out.println(sql);
 
