@@ -23,6 +23,54 @@
 
 <!-- script -->
 <script type="text/javascript" src="./js/member.js"></script>
+<script type="text/javascript">
+	var xmlReq; // 전역변수로 지정.
+	//Ajax 객체 생성 과정
+	function createAjax() {
+		xmlReq = new XMLHttpRequest();
+	}
+
+	//Ajax 객체를 이용한 데이터 전송 과정
+	function ajaxSend() {
+		createAjax();
+		var uid = document.getElementById("userid").value;
+		xmlReq.onreadystatechange = callBack; // 괄호 열고닫고가 틀리다.!
+		xmlReq.open("GET", "ajax_receive.jsp?uid=" + uid, true);
+		xmlReq.send(null);
+		// send가 끝나고나면 비동기식이기 때문에 프로그램이 계속 진행된다.
+	}
+
+	//콜백 함수 과정
+	function callBack() {
+		if (xmlReq.readyState == 4) {
+			if (xmlReq.status == 200) {
+				printData();
+			}
+		}
+	}
+
+	//결과 출력 과정
+	function printData() {
+		var result = xmlReq.responseXML;
+
+		var rootNode = result.documentElement;
+		// <root>true</root> , <root>false</root>
+		var rootValue = rootNode.firstChild.nodeValue;
+		var rootTag = document.getElementById("result");
+
+		var idNode = rootNode.getElementsByTagName("id");
+		var idValue = idNode.item(0).firstChild.nodeValue;
+		var idTag = document.getElementById("idTxt");
+
+		if (rootValue == "true") {
+			rootTag.innerHTML = "사용 가능한 아이디";
+			idTag.innerHTML = "<br>" + idValue;
+		} else {
+			rootTag.innerHTML = "중복된 아이디";
+			idTag.innerHTML = "<br>" + idValue;
+		}
+	}
+</script>
 
 </head>
 <body style="background-color: #e3e3e3">
@@ -39,8 +87,9 @@
 					<div class="form-group">
 						<label class="col-lg-3 control-label">회원 ID</label>
 						<div class="col-lg-5">
-							<input name="userid" id="userid" type="text" class="form-control" placeholder="중복체크 버튼을 누르세요" readonly> 
-							<input class="btn btn-default btn-xs" type="button" value="ID 중복체크" style="margin-top: 5px" onclick="openIDCheck()"> 
+							<input name="userid" id="userid" type="text" class="form-control" placeholder="영문,숫자 조합" onkeyup="ajaxSend()">
+							<h6><span id="result" style="color: red;"></span></h6>
+							<!-- <input class="btn btn-default btn-xs" type="button" value="ID 중복체크" style="margin-top: 5px" onclick="openIDCheck()"> --> 
 						</div>
 					</div>
 					<div class="form-group">
@@ -53,8 +102,8 @@
 					<div class="form-group">
 						<label class="col-lg-3 control-label">비밀번호 확인</label>
 						<div class="col-lg-4">
-							<input name="password2" type="password" class="form-control"
-								placeholder="Check Password">
+							<input name="password2" type="password" class="form-control" placeholder="Check Password">
+								<h6><span id="result" style="color: red;"></span></h6>
 						</div>
 					</div>
 					<hr>

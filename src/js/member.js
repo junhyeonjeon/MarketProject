@@ -61,7 +61,7 @@ function goFindZipcode() {
 	window.open("./zipcode.jsp", "zipcode",
 			"left=400, top=200, width=500, height=620");
 }
-
+/*
 // 아이디 사용하기
 function closeIDCheck() {
 	opener.document.getElementById("userid").value = document.idcheck_form.userid.value;
@@ -82,6 +82,7 @@ function openIDCheck() {
 	window.open("./idcheck.jsp", "idcheck",
 			"left=400, top=200, width=300, height=320");
 }
+*/
 
 // 로그인
 function login_check() {
