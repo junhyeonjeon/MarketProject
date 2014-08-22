@@ -10,6 +10,9 @@ function ajaxSend(type) {
 	createAjax();
 	if (type == "id") {
 		var uid = document.getElementById("userid").value;
+		
+		
+		
 		xmlReq.onreadystatechange = callBack_id;
 		xmlReq.open("get", "ajax_receiveId.jsp?uid=" + uid, true);
 	} else if (type == "name") {

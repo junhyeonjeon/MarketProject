@@ -35,9 +35,8 @@
 		<div class="collapse navbar-collapse"
 			id="bs-example-navbar-collapse-1">
 			<ul class="nav navbar-nav">
-				<li <%if(pageName.equals("board.jsp")){%>class="active"<%} %>><a href="./board.jsp">board</a></li>
-				<li><a href="#">menu2</a></li>
-				<li><a href="#">menu3</a></li>
+				<li <%if(pageName.equals("board.jsp")){%>class="active"<%} %>><a href="./board.jsp">벼룩시장</a></li>
+				<li <%if(pageName.equals("room_board.jsp")){%>class="active"<%} %>><a href="./room_board">원룸정보</a></li>
 			</ul>
 			<ul class="nav navbar-nav navbar-right">
 				<!-- 자바스크립트로 if문을 사용하여 로그인되었는지 안되었는지를 구분 -->

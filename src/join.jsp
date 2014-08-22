@@ -33,8 +33,8 @@
 				<div class="modal-body">
 					<div class="form-group">
 						<label class="col-lg-3 control-label">회원 ID</label>
-						<div id="div_id" class="col-lg-5">
-							<input name="userid" id="userid" type="text" class="form-control" placeholder="영문,숫자 조합" onkeyup="ajaxSend('id')">
+						<div id="div_id" class="col-lg-9">
+							<input name="userid" id="userid" type="text" class="form-control" placeholder="5~12자의 영문 소문자, 숫자와 특수기호(_)만 사용 가능합니다" onblur="ajaxSend('id')" style="ime-mode:inactive" onKeyup="eng(this)">
 							<h6>
 								<span name="id_result" id="id_result" style="color: red;"></span>
 							</h6>
@@ -45,13 +45,13 @@
 					<div class="form-group">
 						<label class="col-lg-3 control-label">비밀번호</label>
 						<div class="col-lg-4">
-							<input name="password1" id="password1" type="password" class="form-control" placeholder="Password">
+							<input name="password1" id="password1" type="password" class="form-control" placeholder="Password" style="ime-mode:inactive" onKeyup="eng(this)">
 						</div>
 					</div>
 					<div class="form-group">
 						<label class="col-lg-3 control-label">비밀번호 확인</label>
 						<div class="col-lg-4">
-							<input name="password2" id="password2" type="password" class="form-control" placeholder="Check Password" onkeyup="checkpwd()">
+							<input name="password2" id="password2" type="password" class="form-control" placeholder="Check Password" onblur="checkpwd()" style="ime-mode:inactive" onKeyup="eng(this)">
 							<h6>
 								<span name="pw_result" id="pw_result" style="color: red;"></span>
 							</h6>
@@ -62,7 +62,7 @@
 					<div class="form-group">
 						<label class="col-lg-3 control-label">닉네임</label>
 						<div class="col-lg-4">
-							<input name="username" id="username" type="text" class="form-control" placeholder="" onkeyup="ajaxSend('name')">
+							<input name="username" id="username" type="text" class="form-control" placeholder="" onblur="ajaxSend('name')">
 							<h6>
 								<span name="name_result" id="name_result" style="color: red;"></span>
 							</h6>
@@ -90,7 +90,7 @@
 					<div class="form-group">
 						<label class="col-lg-3 control-label">상세주소</label>
 						<div class="col-lg-7">
-							<input name="address2" type="text" class="form-control" placeholder="Address2">
+							<input name="address2" type="text" class="form-control" placeholder="Address2" style="ime-mode:active">
 						</div>
 					</div>
 					<div class="form-group">
@@ -102,7 +102,7 @@
 					<div class="form-group">
 						<label class="col-lg-3 control-label">연락처</label>
 						<div class="col-lg-4">
-							<input name="phone" type="text" class="form-control" placeholder="Phone">
+							<input name="phone" id=phone" type="text" class="form-control" placeholder="Phone" OnKeypress="onlyNumber()" style="ime-mode:disabled" onKeyup="eng(this)">
 						</div>
 					</div>
 				</div>

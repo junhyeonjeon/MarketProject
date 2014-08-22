@@ -47,8 +47,8 @@
 	<div class="bs-header" id="content">
 		<div class="marketing-section marketing-section-signup">
 			<div class="container">
-				<h1 class="heading">Welcome to Title</h1>
-				<p>환영합니다</p>
+				<h1 class="heading">Welcome</h1>
+				<p><h3>호서 벼룩시장 & 원룸정보 커뮤니케이션</h3></p>
 			</div>
 		</div>
 	</div>
@@ -59,7 +59,7 @@
 		<div>
 			<div>
 				<h5 class="page-header">
-					<img class="new" src="./images/new.png"><b>최근글</b>
+					<img class="new" src="./images/new.png"><b>호서대 최신 공지사항</b>
 				</h5>
 			</div>
 			<div class="text-right">
@@ -73,7 +73,7 @@
 				<colgroup>
 					<col width="70">
 					<col width="*">
-					<col width="122">
+					<col width="170">
 					<col width="100">
 					<col width="70">
 				</colgroup>

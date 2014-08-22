@@ -36,108 +36,65 @@
 		<div class="row">
 			<div class="col-lg-12">
 				<h1 class="page-header">
-					Page Heading <small>Secondary Text</small>
+					벼룩시장 <small>&lt;팝니다&gt;</small>
+
 				</h1>
+				<div class="btn-group btn-group-sm">
+					<input type="button" class="btn btn-warning active" value="팝니다">
+					<input type="button" class="btn btn-warning" value="삽니다">
+				</div>
 				<div class="navbar-right radio">
 					<label> <input type="radio" name="optionsRadios"
-						value="op_album" checked="checked"> <small><span
-							class="glyphicon glyphicon-th-large"></span>&nbsp;앨범형</small>
-					</label> &nbsp; <label> <input type="radio" name="optionsRadios"
-						value="op_board"> <small><span
-							class="glyphicon glyphicon-align-justify"></span>&nbsp;게시글형</small>
+						value="op_album"> <small><span
+							class="glyphicon glyphicon-th-large"></span>&nbsp;앨범형</small></label> &nbsp; <label>
+						<input type="radio" name="optionsRadios" value="op_board"
+						checked="checked"> <small><span
+							class="glyphicon glyphicon-align-justify"> </span>&nbsp;게시글형</small>
 					</label>
 				</div>
 			</div>
 		</div>
 		<!-- /.row -->
 
-		<!-- Projects Row -->
-		<div class="row">
-			<div class="col-md-2 portfolio-item img-responsive">
-				<a href="#"> <img class="img-responsive img-thumbnail"
-					src="http://placehold.it/140x140" alt="">
-				</a>
-				<h5>title</h5>
-			</div>
-			<div class="col-md-2 portfolio-item img-responsive">
-				<a href="#"> <img class="img-responsive img-thumbnail"
-					src="http://placehold.it/140x140" alt="">
-				</a>
-				<h5>title</h5>
-			</div>
-			<div class="col-md-2 portfolio-item img-responsive">
-				<a href="#"> <img class="img-responsive img-thumbnail"
-					src="http://placehold.it/140x140" alt="">
-				</a>
-				<h5>title</h5>
-			</div>
-			<div class="col-md-2 portfolio-item img-responsive">
-				<a href="#"> <img class="img-responsive img-thumbnail"
-					src="http://placehold.it/140x140" alt="">
-				</a>
-				<h5>title</h5>
-			</div>
-			<div class="col-md-2 portfolio-item img-responsive">
-				<a href="#"> <img class="img-responsive img-thumbnail"
-					src="http://placehold.it/140x140" alt="">
-				</a>
-				<h5>title</h5>
-			</div>
-			<div class="col-md-2 portfolio-item img-responsive">
-				<a href="#"> <img class="img-responsive img-thumbnail"
-					src="http://placehold.it/140x140" alt="">
-				</a>
-				<h5>title</h5>
-			</div>
-		</div>
-		<!-- /.row -->
+		<div class="container bs-docs-container">
 
-		<!-- Projects Row -->
-		<div class="row center">
-			<div class="col-md-2 portfolio-item">
-				<a href="#"> <img class="img-responsive img-thumbnail"
-					src="http://placehold.it/140x140" alt="">
-				</a>
-				<h5>title</h5>
-			</div>
-			<div class="col-md-2 portfolio-item img-responsive">
-				<a href="#"> <img class="img-responsive img-thumbnail"
-					src="http://placehold.it/140x140" alt="">
-				</a>
-				<h5>title</h5>
-			</div>
-			<div class="col-md-2 portfolio-item img-responsive">
-				<a href="#"> <img class="img-responsive img-thumbnail"
-					src="http://placehold.it/140x140" alt="">
-				</a>
-				<h5>title</h5>
-			</div>
-			<div class="col-md-2 portfolio-item img-responsive">
-				<a href="#"> <img class="img-responsive img-thumbnail"
-					src="http://placehold.it/140x140" alt="">
-				</a>
-				<h5>title</h5>
-			</div>
-			<div class="col-md-2 portfolio-item img-responsive">
-				<a href="#"> <img class="img-responsive img-thumbnail"
-					src="http://placehold.it/140x140" alt="">
-				</a>
-				<h5>title</h5>
-			</div>
-			<div class="col-md-2 portfolio-item img-responsive">
-				<a href="#"> <img class="img-responsive img-thumbnail"
-					src="http://placehold.it/140x140" alt="">
-				</a>
-				<h5>title</h5>
+			<div class="table-responsive">
+				<table class="table table-condensed table-hover">
+					<colgroup>
+						<col width="70">
+						<col width="*">
+						<col width="170">
+						<col width="100">
+						<col width="70">
+					</colgroup>
+					<thead>
+						<tr class="text-center"
+							style="font-weight: bolder; background-image: url('./images/table_mid.gif');">
+							<td>번호</td>
+							<td>제목</td>
+							<td>작성자</td>
+							<td>작성일</td>
+							<td>조회수</td>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td align="center">1</td>
+							<td align="left"><a href="#">제목1</a></td>
+							<td align="left"><a href="#">작성자1</a></td>
+							<td align="center">2014-08-15</td>
+							<td align="center">30</td>
+						</tr>
+					</tbody>
+				</table>
 			</div>
 		</div>
-		<!-- /.row -->
 
 		<!-- Pagination -->
 		<div class="row text-center">
 			<div class="col-lg-12">
 				<input class="btn btn-primary navbar-right" type="button"
-					value="글쓰기">
+					value="글쓰기" data-toggle="modal" data-target="#writeModal">
 			</div>
 			<div class="col-lg-12">
 				<ul class="pagination">
@@ -173,5 +130,69 @@
 	</div>
 	<!-- /.container -->
 
+
+	<!-- 글쓰기모달 : 시작 -->
+	<div class="modal fade" id="writeModal" tabindex="-1" role="dialog"
+		aria-labelledby="myModalLabel" aria-hidden="true">
+		<form name="write_form" method="post" class="form-horizontal"
+			role="form">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal"
+							aria-hidden="true">×</button>
+						<h4 class="modal-title">
+							<span class="glyphicon glyphicon-pencil"></span>&nbsp;WRITE
+						</h4>
+					</div>
+					<div class="modal-body">
+						<div class="form-group">
+							<div class="col-lg-2">
+								<label class="control-label">카테고리</label>
+							</div>
+							<div class="col-lg-4">
+								<select class="form-control">
+									<option value="">게시판선택</option>
+									<option value="board_sell">벼룩시장(팝니다)</option>
+									<option value="board_buy">벼룩시장(삽니다)</option>
+									<option value="room_board">원룸정보</option>
+								</select>
+							</div>
+						</div>
+						<div class="form-group">
+							<div class="col-lg-2">
+								<label class="control-label">제목</label>
+							</div>
+							<div class="col-lg-10">
+								<input type="text" class="form-control" placeholder="제목을 입력하세요">
+							</div>
+						</div>
+						<div class="form-group">
+							<div class="col-lg-2">
+								<label class="control-label">내용</label>
+							</div>
+							<div class="col-lg-10">
+								<textarea class="form-control" style="height: 180px"></textarea>
+							</div>
+						</div>
+						<div class="form-group">
+							<div class="col-lg-2">
+								<label class="control-label">첨부파일</label>
+							</div>
+							<div class="col-lg-10">
+								<input type="file" class="control-label">
+							</div>
+						</div>
+					</div>
+
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">취소</button>
+						<button type="button" class="btn btn-primary">작성완료</button>
+					</div>
+				</div>
+			</div>
+		</form>
+	</div>
+	<!-- 글쓰기모달 : 끝 -->
 </body>
 </html>
