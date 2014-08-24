@@ -12,7 +12,7 @@
 		MemberDto dto = new MemberDto();
 		MemberDao dao = new MemberDao();
 		request.setCharacterEncoding("EUC-KR");
-	
+
 		dto.setUserid(request.getParameter("userid"));
 		dto.setPassword(request.getParameter("password1"));
 		dto.setUsername(request.getParameter("username"));

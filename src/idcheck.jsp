@@ -1,15 +1,11 @@
-<%@page import="com.myhome.member.MemberDao"%>
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
+<%-- <%@page import="com.myhome.member.*"%>
+<%@ page language="java" contentType="text/html; charset=EUC-KR" pageEncoding="EUC-KR"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport"
-	content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
-<meta name="description" content="">
-<meta name="author" content="">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+
 <title>ID 중복검사</title>
 
 <!-- CSS -->
@@ -58,12 +54,10 @@
 						<label class="col-lg-3 control-label">ID 입력</label>
 						<div class="col-lg-6">
 							<div class="input-group">
-								<input name="userid" type="text" class="form-control"
-								<%if(userid!=null && !userid.equals("")){ %>
-									value=<%=userid%>
-								<%} %>
-									> 
-								<span class="input-group-btn">
+								<input name="userid" type="text" class="form-control" <%if (userid != null && !userid.equals("")) {%> 
+																						value=<%=userid%>
+																						<%}%>> 
+									<span class="input-group-btn">
 									<button class="btn btn-default" type="button" onclick="goCheck()">Check</button>
 								</span>
 							</div>
@@ -79,12 +73,16 @@
 				</div>
 				<div class="modal-footer">
 					<button type="button" class="btn btn-default" onclick="self.close()">닫기</button>
-					<%if(checker.equals("Y")){%>
-						<button type="button" class="btn btn-primary" onclick="closeIDCheck()">사용하기</button>
-					<%} %>
+					<%
+						if (checker.equals("Y")) {
+					%>
+							<button type="button" class="btn btn-primary" onclick="closeIDCheck()">사용하기</button>
+					<%
+						}
+					%>
 				</div>
 			</div>
 		</div>
 	</form>
 </body>
-</html>
+</html> --%>

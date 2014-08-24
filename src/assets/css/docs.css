@@ -281,7 +281,7 @@ body {
 
 /* Page headers */
 .bs-header {
-	padding: 30px 15px 40px;
+	padding: 3px 15px 3px;
 	/* side padding builds on .container 15px, so 30px */
 	font-size: 16px;
 	text-align: center;
@@ -304,7 +304,8 @@ body {
 @media screen and (min-width: 768px) {
 	.bs-header {
 		font-size: 21px;
-		text-align: left;
+		text-align: center;
+		padding-left: 380px;
 	}
 	.bs-header h1 {
 		font-size: 60px;

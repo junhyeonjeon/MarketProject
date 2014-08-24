@@ -44,15 +44,6 @@ a:hover {
 <!-- Bootstrap Core JavaScript -->
 <script src="js/bootstrap.min.js"></script>
 
-<script type="text/javascript">
-	if (navigator.userAgent.match(/IEMobile\/10\.0/)) {
-		var msViewportStyle = document.createElement("style");
-		msViewportStyle.appendChild(document
-				.createTextNode("@-ms-viewport{width:auto!important}"));
-		document.getElementsByTagName("head")[0].appendChild(msViewportStyle);
-	}
-</script>
-
 <!-- 모바일화면 출력용 -->
 <!-- 
 <script type="text/javascript">
@@ -77,8 +68,8 @@ a:hover {
 			<div class="col-md-2">
 				<div class="bs-sidebar hidden-print" role="complementary">
 					<ul class="nav bs-sidenav">
-						<li class="active"><a href="./index.jsp">공지사항</a></li>
-						<li><a href="./event.jsp">이벤트</a></li>
+						<li><a href="./index.jsp">공지사항</a></li>
+						<li class="active"><a href="./event.jsp">이벤트</a></li>
 						<li><a href="./accuse.jsp">불량/사기신고</a></li>
 					</ul>
 				</div>
@@ -87,9 +78,8 @@ a:hover {
 			<div class="col-md-8">
 				<div>
 					<h5 class="page-header form-control" style="height: 55">
-						<img class="new" src="./images/new.png"><b>공지사항</b><br>
-						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<small>가입 후
-							공지사항을 꼭 읽어주세요.</small>
+						<img class="new" src="./images/new.png"><b>이벤트</b><br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<small>무료체험, 수수료할인, 쿠폰 등 다양한 이벤트!</small>
 					</h5>
 				</div>
 				<div class="table-responsive">

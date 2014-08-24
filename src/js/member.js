@@ -32,8 +32,9 @@ function goJoin() {
 		alert("주소를 입력해주세요");
 		return;
 	}
-	if (!frm.email.value) {
-		alert("이메일을 입력해주세요");
+	if (emailTxt.innerHTML == null || emailTxt.innerHTML == ""
+		|| emailTxt.innerHTML == "N") {
+		alert("이메일을 확인해주세요");
 		frm.email.focus();
 		return;
 	}
@@ -50,8 +51,17 @@ function goJoin() {
 /* 주소 찾기 : 시작 */
 function goFindZipcode() {
 	// 주소찾기 창 띄우기
-	window.open("./zipcode.jsp", "zipcode",
-			"left=400, top=200, width=500, height=620");
+	var winWidth = 500;
+	var winHeight = 620;
+	var winURL = "./zipcode.jsp";
+	var winName = "zipcode";
+	var winPosLeft = (screen.width - winWidth) / 2;
+	var winPosTop = (screen.height - winHeight) / 2;
+	var winOpt = "width=" + winWidth + ",height=" + winHeight + ",top="
+			+ winPosTop + ",left=" + winPosLeft;
+
+	window.open(winURL, winName, winOpt
+			+ ",menubar=no,status=no,scrollbars=no,resizable=no");
 }
 function goSearch() {
 	// 주소 검색창 재귀호출
@@ -63,22 +73,47 @@ function goAddress(zipcode, address) {
 	// 선택한 주소를 회원가입 창으로 전달
 	opener.document.getElementById("zipcode").value = zipcode;
 	opener.document.getElementById("address1").value = address;
+	opener.document.getElementById("addTxt").value = "Y";
 
 	self.close();
 }
 /* 주소 찾기 : 끝 */
 
-/* 영문만 받기 : 시작 */
-function eng(obj) {
-    var pattern = /[^(a-z0-9_)]/; //영문만 허용
-    if (pattern.test(obj.value)) {
-        alert("5~12자의 영문 소문자, 숫자와 특수기호(_)만 사용 가능합니다");
-        obj.value = '';
-        obj.focus();
-        return false;
-    }
+/* 휴대폰 인증 : 시작 */
+function goChkPhone() {
+	var winWidth = 400;
+	var winHeight = 420;
+	var winURL = "./phone.jsp";
+	var winName = "phone";
+	var winPosLeft = (screen.width - winWidth) / 2;
+	var winPosTop = (screen.height - winHeight) / 2;
+	var winOpt = "width=" + winWidth + ",height=" + winHeight + ",top="
+			+ winPosTop + ",left=" + winPosLeft;
+
+	window.open(winURL, winName, winOpt
+			+ ",menubar=no,status=no,scrollbars=no,resizable=no");
 }
-/* 영문만 받기 : 끝 */
+function goCheck() {
+	var frm = document.phonecheck_form;
+	
+	frm.action = "./phone.jsp";
+	frm.submit();
+}
+function goCertCheck(ranNum) {
+	var frm = document.phonecheck_form;
+	var certNum = frm.certNum.value;
+	var phone = frm.phone.value;
+	
+	if(ranNum != certNum){
+		alert("인증번호가 다릅니다");
+		frm.certNum.focus();
+		return;		
+	}
+	
+	opener.document.getElementById("phone").value = phone;
+	self.close();
+}
+/*휴대폰 인증 : 끝*/
 
 /* 로그인 : 시작 */
 function login_check() {
@@ -105,12 +140,11 @@ function login_check() {
  * // 아이디 사용하기 function closeIDCheck() {
  * opener.document.getElementById("userid").value =
  * document.idcheck_form.userid.value;
- * opener.document.getElementById("idcheck").value = "Y"; self.close(); }
- *  // 아이디 체크 창 재귀호출 function goCheck() { var frm = document.idcheck_form;
- * frm.action = "./idcheck.jsp"; frm.submit(); }
- *  // 아이디 중복체크 창 function openIDCheck() { // 팝업창 띄우기
- * window.open("./idcheck.jsp", "idcheck", "left=400, top=200, width=300,
- * height=320"); }
+ * opener.document.getElementById("idcheck").value = "Y"; self.close(); } // 아이디
+ * 체크 창 재귀호출 function goCheck() { var frm = document.idcheck_form; frm.action =
+ * "./idcheck.jsp"; frm.submit(); } // 아이디 중복체크 창 function openIDCheck() { //
+ * 팝업창 띄우기 window.open("./idcheck.jsp", "idcheck", "left=400, top=200,
+ * width=300, height=320"); }
  */
 
 /*
@@ -130,6 +164,5 @@ function login_check() {
  * if (!frm.address2.value) { alert("나머지주소를 입력해주세요"); frm.address2.focus();
  * return; } if (!frm.email.value) { alert("이메일을 입력해주세요"); frm.email.focus();
  * return; } if (!frm.phone.value) { alert("연락처를 입력해주세요"); frm.phone.focus();
- * return; }
- *  }
+ * return; } }
  */

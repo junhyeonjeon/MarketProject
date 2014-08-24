@@ -8,6 +8,7 @@
 	String userid = request.getParameter("userid");
 	String password = request.getParameter("password");
 	String pageName = request.getParameter("pageName");
+	String username = "";
 	MemberDao dao = new MemberDao();
 
 	boolean check = false;
@@ -15,6 +16,8 @@
 
 	if (check == true) {
 		session.setAttribute("userid", userid);
+		username = dao.getName(userid);
+		session.setAttribute("username", username);
 %>
 <script type="text/javascript">
 	location.href = <%if (!pageName.equals("") && pageName != null) {%>

@@ -59,8 +59,6 @@ public class MemberDao {
 		String sql = "select count(*) from member where userid='" + userid
 				+ "' and password='" + password + "'";
 
-		System.out.println(sql);
-
 		try {
 			conn = db.getConnection();
 			stmt = conn.createStatement();
@@ -90,6 +88,44 @@ public class MemberDao {
 		return result;
 	}
 
+	// 이름 찾기
+	public String getName(String userid) {
+
+		Connection conn = null;
+		Statement stmt = null;
+		ResultSet rs = null;
+
+		String sql = "select username from member where userid='" + userid
+				+ "'";
+
+		String username = "";
+
+		try {
+			conn = db.getConnection();
+			stmt = conn.createStatement();
+			rs = stmt.executeQuery(sql);
+
+			rs.next();
+			username = rs.getString("USERNAME");
+		} catch (SQLException se) {
+			se.printStackTrace();
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (rs != null)
+					rs.close();
+				if (stmt != null)
+					stmt.close();
+				if (conn != null)
+					conn.close();
+			} catch (Exception ex) {
+			}
+		}
+
+		return username;
+	}
+
 	// 회원정보 입력
 	public void insert(MemberDto dto) {
 
@@ -103,8 +139,6 @@ public class MemberDao {
 				+ dto.getAddress1() + "', '" + dto.getAddress2() + "', '"
 				+ dto.getEmail() + "', '" + dto.getPhone() + "', " + "sysdate"
 				+ ", null" + ", 'N')";
-
-		System.out.println(sql);
 
 		try {
 			conn = db.getConnection();
@@ -132,8 +166,6 @@ public class MemberDao {
 		Statement stmt = null;
 		ResultSet rs = null;
 		boolean result = false;
-
-		System.out.println(sql);
 
 		try {
 			conn = db.getConnection();
