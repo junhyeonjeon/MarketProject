@@ -5,11 +5,11 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
-<!-- <meta http-equiv="X-UA-Compatible" content="IE=edge"> -->
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
-<!-- <meta name="description" content="">
-<!-- <meta name="author" content=""> -->
+<meta name="description" content="">
+<meta name="author" content="">
 
 <title>Insert title here</title>
 
@@ -44,6 +44,15 @@ a:hover {
 <!-- Bootstrap Core JavaScript -->
 <script src="js/bootstrap.min.js"></script>
 
+<script type="text/javascript">
+	if (navigator.userAgent.match(/IEMobile\/10\.0/)) {
+		var msViewportStyle = document.createElement("style");
+		msViewportStyle.appendChild(document
+				.createTextNode("@-ms-viewport{width:auto!important}"));
+		document.getElementsByTagName("head")[0].appendChild(msViewportStyle);
+	}
+</script>
+
 <!-- 모바일화면 출력용 -->
 <!-- 
 <script type="text/javascript">
@@ -77,7 +86,7 @@ a:hover {
 
 			<div class="col-md-8">
 				<div>
-					<h5 class="page-header form-control" style="height: 55">
+					<h5 class="page-header" style="height: 55">
 						<img class="new" src="./images/new.png"><b>불량/사기신고</b><br>
 						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<small>거래 중 사기 및
 							사건/사고, 사기 의심 게시글이나 회원을 신고해주세요</small>
@@ -162,7 +171,6 @@ a:hover {
 					</div>
 					<%} %>
 				</div>
-
 				<div>
 					<a href="#"><img alt="banner_bottom"
 						src="./images/joonggonara_cleancall_banner.jpg"

@@ -5,9 +5,11 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
-
+<meta name="description" content="">
+<meta name="author" content="">
 <title>휴대폰 인증</title>
 
 <!-- CSS -->
@@ -63,7 +65,8 @@
 							<div class="input-group">
 								<input name="phone" id="phone" type="text" class="form-control"
 									<%if (phone != null && !phone.equals("")) {%> value=<%=phone%>
-									<%}%>> <span class="input-group-btn">
+									<%}%>> 
+									<span class="input-group-btn">
 									<button class="btn btn-default" type="button"
 										onclick="goCheck()">인증번호 받기</button>
 								</span>
@@ -93,9 +96,11 @@
 						<label class="col-lg-3 control-label">인증번호 입력</label>
 						<div class="col-lg-6">
 							<div class="input-group">
-								<input name="certNum" id="certNum" type="text" class="form-control" onblur="CheckCert()"> 
-								<span class="input-group-btn">
-									<button class="btn btn-default btn-primary" type="button" onclick="goCertCheck(<%=ranNum%>)">입력완료</button>
+								<input name="certNum" id="certNum" type="text"
+									class="form-control" onblur="CheckCert()"> <span
+									class="input-group-btn">
+									<button class="btn btn-default btn-primary" type="button"
+										onclick="goCertCheck(<%=ranNum%>)">입력완료</button>
 								</span>
 							</div>
 						</div>

@@ -5,11 +5,11 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
-<!-- <meta http-equiv="X-UA-Compatible" content="IE=edge"> -->
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
-<!-- <meta name="description" content="">
-<!-- <meta name="author" content=""> -->
+<meta name="description" content="">
+<meta name="author" content="">
 
 <title>Insert title here</title>
 
@@ -44,6 +44,15 @@ a:hover {
 <!-- Bootstrap Core JavaScript -->
 <script src="js/bootstrap.min.js"></script>
 
+<script type="text/javascript">
+	if (navigator.userAgent.match(/IEMobile\/10\.0/)) {
+		var msViewportStyle = document.createElement("style");
+		msViewportStyle.appendChild(document
+				.createTextNode("@-ms-viewport{width:auto!important}"));
+		document.getElementsByTagName("head")[0].appendChild(msViewportStyle);
+	}
+</script>
+
 <!-- 모바일화면 출력용 -->
 <!-- 
 <script type="text/javascript">
@@ -77,7 +86,7 @@ a:hover {
 
 			<div class="col-md-8">
 				<div>
-					<h5 class="page-header form-control" style="height: 55">
+					<h5 class="page-header" style="height: 55">
 						<img class="new" src="./images/new.png"><b>이벤트</b><br>
 						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<small>무료체험, 수수료할인, 쿠폰 등 다양한 이벤트!</small>
 					</h5>

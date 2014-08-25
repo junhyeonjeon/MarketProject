@@ -62,8 +62,7 @@
 								</span>
 							</div>
 						</div>
-						<div class="col-lg-8"
-							style="text-align: center; margin-top: 10px;">
+						<div class="col-lg-8" style="text-align: center; margin-top: 10px;">
 							<table class="table table-condensed table-hover">
 								<colgroup>
 									<col width="70">

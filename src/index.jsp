@@ -5,11 +5,11 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
-<!-- <meta http-equiv="X-UA-Compatible" content="IE=edge"> -->
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
-<!-- <meta name="description" content="">
-<!-- <meta name="author" content=""> -->
+<meta name="description" content="">
+<meta name="author" content="">
 
 <title>Insert title here</title>
 
@@ -86,7 +86,7 @@ a:hover {
 
 			<div class="col-md-8">
 				<div>
-					<h5 class="page-header form-control" style="height: 55">
+					<h5 class="page-header">
 						<img class="new" src="./images/new.png"><b>공지사항</b><br>
 						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<small>가입 후
 							공지사항을 꼭 읽어주세요.</small>
@@ -199,5 +199,8 @@ a:hover {
 		</div>
 	</div>
 	<!-- 꼬릿말 : 끝 -->
+	
+<%@include file="./include/joinModal.jsp" %>
+	
 </body>
 </html>

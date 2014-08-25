@@ -7,8 +7,11 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+<meta name="description" content="">
+<meta name="author" content="">
 
 <title>Insert title here</title>
 
@@ -27,31 +30,31 @@
 <script type="text/javascript" src="./js/board.js"></script>
 
 </head>
-<body>
-<%
-	String opt = request.getParameter("options");
-	String univOpt = request.getParameter("univOpt");
-	String boardOpt = request.getParameter("boardOpt");
-	
-	System.out.println(opt);
-	System.out.println(univOpt);
-	System.out.println(boardOpt);
-%>
 
+<body>
+	<%
+		String opt = request.getParameter("options");
+		String univOpt = request.getParameter("univOpt");
+		String boardOpt = request.getParameter("boardOpt");
+
+		System.out.println(opt);
+		System.out.println(univOpt);
+		System.out.println(boardOpt);
+	%>
 	<form name="form" method="get">
-		<div class="container">
+		<!-- 페이지 바디 : 시작 -->
+		<div class="container bs-docs-container">
 			<!-- 게시판 리스트 헤더 : 시작 -->
 			<div class="row">
 				<div class="row page-header">
 					<div class="col-md-1"></div>
 					<div class="btn-group btn-group-sm col-md-2" data-toggle="buttons">
-						<label class="btn btn-warning">
-							<input type="radio" name="options" value="1">팝니다
+						<label class="btn btn-warning"> <input type="radio"
+							name="options" value="1">팝니다
+						</label> <label class="btn btn-warning"> <input type="radio"
+							name="options" value="2">삽니다
 						</label>
-						<label class="btn btn-warning">
-							<input type="radio" name="options" value="2">삽니다
-						</label>
-						
+
 					</div>
 					<div class="col-md-2">
 						<select name="univOpt" class="form-control">
@@ -208,7 +211,8 @@
 						<input type="text" class="form-control">
 					</div>
 					<div class="col-md-1">
-						<input type="button" class="btn btn-success" value="검색" onclick="boardCheck()">
+						<input type="button" class="btn btn-success" value="검색"
+							onclick="boardCheck()">
 					</div>
 					<div class="col-md-1"></div>
 					<div class="col-md-2"></div>
@@ -288,91 +292,23 @@
 
 			</div>
 			<!-- 게시판 리스트 아래 글쓰기, 검색, 페이징 : 끝 -->
-
-			<hr>
-
-			<!-- Footer : 시작 -->
-			<footer>
-			<div class="row">
-				<div class="col-lg-10">
-					<p>Copyright &copy; Your Website 2014</p>
-				</div>
-			</div>
-			</footer>
-			<!-- Footer : 끝 -->
-
 		</div>
+		<!-- 페이지 바디 : 끝 -->
 	</form>
 
-	<!-- 글쓰기모달 : 시작 -->
-	<div class="modal fade" id="writeModal" tabindex="-1" role="dialog"
-		aria-labelledby="myModalLabel" aria-hidden="true">
-		<form name="write_form" method="post" class="form-horizontal"
-			role="form">
-			<div class="modal-dialog">
-				<div class="modal-content">
-					<div class="modal-header">
-						<button type="button" class="close" data-dismiss="modal"
-							aria-hidden="true">×</button>
-						<h4 class="modal-title">
-							<span class="glyphicon glyphicon-pencil"></span>&nbsp;WRITE
-						</h4>
-					</div>
-					<div class="modal-body">
-						<div class="form-group">
-							<div class="col-lg-2">
-								<label class="control-label">카테고리</label>
-							</div>
-							<div class="col-lg-4">
-								<select class="form-control">
-									<option value="">구분</option>
-									<option value="sell">팝니다</option>
-									<option value="buy">삽니다</option>
-								</select>
-							</div>
-							<div class="col-lg-4">
-								<select class="form-control">
-									<option value="">학교선택</option>
-									<option value="board_sell">벼룩시장(팝니다)</option>
-									<option value="board_buy">벼룩시장(삽니다)</option>
-									<option value="room_board">원룸정보</option>
-								</select>
-							</div>
-						</div>
-						<div class="form-group">
-							<div class="col-lg-2">
-								<label class="control-label">제목</label>
-							</div>
-							<div class="col-lg-10">
-								<input type="text" class="form-control" placeholder="제목을 입력하세요">
-							</div>
-						</div>
-						<div class="form-group">
-							<div class="col-lg-2">
-								<label class="control-label">내용</label>
-							</div>
-							<div class="col-lg-10">
-								<textarea class="form-control" style="height: 180px"></textarea>
-							</div>
-						</div>
-						<div class="form-group">
-							<div class="col-lg-2">
-								<label class="control-label">첨부파일</label>
-							</div>
-							<div class="col-lg-10">
-								<input type="file" class="control-label">
-							</div>
-						</div>
-					</div>
-
-					<div class="modal-footer">
-						<button type="button" class="btn btn-default" data-dismiss="modal">취소</button>
-						<button type="button" class="btn btn-primary">작성완료</button>
-					</div>
-				</div>
+	<hr>
+	<!-- 꼬릿말 : 시작 -->
+	<div class="container">
+		<footer>
+		<div class="row">
+			<div class="col-lg-12">
+				<p>Copyright &copy; Your Website 2014</p>
 			</div>
-		</form>
+		</div>
 	</div>
-	<!-- 글쓰기모달 : 끝 -->
+	<!-- 꼬릿말 : 끝 -->
+
+	<%@include file="./include/writeModal.jsp"%>
+
 </body>
 </html>
