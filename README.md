@@ -1,9 +1,7 @@
 대학 벼룩시장
 ===========
 
-프로젝트 다운로드는 화면 우측 Download ZIP으로 다운로드 가능<br>
-이클립스 Existing Projects into Workspace로 import 하면 되며,<br>
-import후 톰캣 오류 시 컨텍스트.xml 파일을 꼭 확인 해보시기 바랍니다.<br>
+ㅎimport후 톰캣 오류 시 컨텍스트.xml 파일을 꼭 확인 하기.<br>
 
 <b><수정사항></b><br>
 1. 각 페이지의 파일명을 추적하는 기능 추가.
