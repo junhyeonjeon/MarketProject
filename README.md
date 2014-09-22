@@ -1,6 +1,5 @@
-
+대학 벼룩시장
 ===========
-<p>대학교 벼룩시장</p>
 
 프로젝트 다운로드는 화면 우측 Download ZIP으로 다운로드 가능<br>
 이클립스 Existing Projects into Workspace로 import 하면 되며,<br>
